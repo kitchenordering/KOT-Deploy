@@ -1,0 +1,193 @@
+
+
+<div class="main-content">
+  <div class="container-fluid">
+    
+     
+        <ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+        [speed]="200" [showSpinner]="true" [direction]="'rightToLeftIncreased'"
+        [color]="'green'" [trickleSpeed]="250000" [thick]="true" [ease]="'linear'"
+></ng-progress>
+    <div class="row">
+        <div class="col-md-12">
+                <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="pill" href="#home" >FOOD ITEMS</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="pill" href="#menu1"> CLOSED ITEMS</a>
+                        </li>
+                       
+                      </ul>
+        </div>
+    </div>
+
+              <div class="tab-content">
+                    <div id="home" class=" tab-pane active tab">
+                      
+                        <div class="row">
+                                <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header " style=" background-color:#ff4800 ; color: rgb(255, 255, 255);">
+                                                <h4 class="card-title "  style=" color: rgb(255, 255, 255);">FOOD LIST TABLE</h4>
+                                                <input class="form-control" style=" color: rgb(255, 255, 255);" type="text" name="searchdata" [(ngModel)]="searchdata"  list="key" placeholder="enter search term here">
+                                                <!-- <datalist name="" id="key">
+                                                  <option *ngFor="let fod of open">{{fod.food_name}}</option>
+                                             </datalist> -->
+                                                <p class="card-category"> </p>
+                                            </div>
+                                            <div class="card-body" >
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Name
+                                                            </th>
+                                                            <!-- <th>
+                                                                category
+                                                            </th> -->
+                                                           
+                                                            <th>
+                                                                Close
+                                                            </th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngIf="open.length==0">
+                                                                    <td >
+                                                                           NO  ITEMS 
+                                                                        </td>
+                                                                        <td >
+                                                                                NO  ITEMS 
+            
+                                                                            </td>
+                                                                            <td >
+                                                                                    NO  ITEMS 
+                
+                                                                                </td>
+                                                            </tr>
+                                                            <tr *ngFor="let value of open | mainfilter:{food_name:searchdata,category:searchdata};let i=index;">
+                                                                <td *ngIf="open.length==0">
+                                                                    noitems
+
+                                                                </td>
+                                                                
+                                                                
+                                                                <td>
+                                                                    {{i+1}}
+                                                                </td>
+                                                                <td>
+                                                                   {{value.food_name}}
+                                                                </td>
+                                                                <!-- <td>
+                                                                    {{value.category}}
+                                                                 </td> -->
+                                                                
+                                                                <td >
+                                                                    
+                                                                      <button  class="btn btn-danger btn-link btn-sm btn-just-icon" >
+                                                                        <i title="disable food" style="font-size: 22px;" value='START' class="material-icons" (click)="togglebutton(value)">close</i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                                
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                     
+                    </div>
+                    <div id="menu1" class=" tab-pane fade">
+                        <div class="row">
+                                <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header" style=" background-color: #ff4800;color: rgb(255, 255, 255);">
+                                                <h4 class="card-title "  style=" color: rgb(255, 255, 255);">FOOD LIST TABLE</h4>
+                                                <input class="form-control" style=" color: rgb(255, 255, 255);" type="text" name="searchdata1" [(ngModel)]="searchdata"  list="key" placeholder="enter search term here">
+                                                <!-- <datalist name="" id="key">
+                                                  <option *ngFor="let fod of close">{{fod.food_name}}</option>
+                                             </datalist> -->
+                                                <p class="card-category"> </p>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+                                                            <th>
+                                                                ID
+                                                            </th>
+                                                            <th>
+                                                                Name
+                                                            </th>
+                                                            <!-- <th>
+                                                                category
+                                                            </th> -->
+                                                           
+                                                            <th>
+                                                                Open
+                                                            </th>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr *ngIf="close.length==0">
+                                                                        <td >
+                                                                               NO  ITEMS 
+                                                                            </td>
+                                                                            <td >
+                                                                                    NO  ITEMS 
+                
+                                                                                </td>
+                                                                                <td >
+                                                                                        NO  ITEMS 
+                    
+                                                                                    </td>
+                                                                </tr>
+                                                            <tr *ngFor="let item of close | mainfilter:{food_name:searchdata,category:searchdata};let i=index">
+                                                                
+                                                                <td>
+                                                                    {{i+1}}
+                                                                </td>
+                                                                <td>
+                                                                    {{item.food_name}}
+                                                                </td>
+                                                                <!-- <td>
+                                                                    {{item.category}}
+                                                                 </td> -->
+                                                                
+                                                                <td class="">
+
+                                                                       
+                                                                            <button  style=" padding-left: 30px" class="btn btn-success btn-link btn-sm btn-just-icon" >
+                                                                                <i class="material-icons" style="font-size: 25px; " title="enable food" (click)="togglebutton(item)">add</i>
+                                                                            </button>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                     
+                    </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+                   
+                               
+                               
+                         
+                      
+               
+              
+     

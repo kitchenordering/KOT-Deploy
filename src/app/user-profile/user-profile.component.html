@@ -1,0 +1,142 @@
+<div class="main-content">
+
+  
+<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+        [speed]="200" [showSpinner]="true" [direction]="'rightToLeftIncreased'"
+        [color]="'green'" [trickleSpeed]="250000" [thick]="true" [ease]="'linear'"
+></ng-progress>
+  <div class="row fle" style="margin:10px">
+
+
+    <div class="col-md-4 col-sm-12 col-12 col-lg-4" *ngFor="let item of food">
+
+      <div *ngIf="food.length>0" class="card page foldtl" style=" background-color: rgb(255, 255, 255);">
+        <!-- <div class=""> -->
+        <h6 class="card-title font-weight-bold text-center"
+          style=" color: rgb(58, 54, 54);height: 40px;font-size: 30px ; font-size: 25px ">TABLE: {{item.table_no}}</h6>
+
+
+        <!-- </div> -->
+
+
+        <!-- <div class=""> -->
+
+
+          <div class="card-title" 
+            style=" background-color: #ff4800; min-height: 18px; font-size:15px; color: rgb(255, 255, 255); margin: 0px 0px;"
+            *ngFor="let value of item.commenst let i=index">
+           {{i+1}}, {{value.order_comments}}
+            <!-- <a class="fa fa-quote-right " style=" "></a> -->
+          </div>
+
+          <div>
+
+
+            <div   class="row" *ngFor="let myvalue of item.all_items" style="margin:5px">
+              <div class="col-md-12 col-sm-12 col-12 font-weight-bold" font-weight-bold
+                style=" color: rgb(54, 50, 55); height: 45px; font-size: 17px "><b>{{myvalue.category}}</b></div>
+
+            
+
+              <div class="col-md-12 col-sm-12 col-12">
+                <div class="row" *ngFor="let xvalue of myvalue.items">
+
+                  <div class="col-md-7 col-sm-7 col-7 font-weight-bold" style="font-size:16px">{{xvalue.food_name}}
+                  </div>
+                  <div class="font-weight-bold col-md-2 col-sm-2 col-2" style="font-size:16px">
+                    {{xvalue.quantity}}
+                  </div>
+                  <div class="col-md-1 col-sm-1 col-1">
+                    <div *ngIf="xvalue.order_status_id === 5">
+
+
+                      <!-- <i title="click to cmplete order " role="button" class="material-icons sortable" (click)="togglebutton(xvalue)"
+                        style=" color: rgb(255, 17, 0);">restaurant_menus</i> -->
+
+                            <img (click)="togglebutton(xvalue)" title="click to complete order " class=" sortable" style="width:35px; height:35px" src="assets/notcoo.png" >
+                    </div>
+
+
+                    <div *ngIf="xvalue.order_status_id === 6">
+                        <!-- <span role="button">hi</span> -->
+                        <img title="food prepared"class=" sortable" style="width:35px; height:35px" src="assets/cooked.png">
+
+                         <!-- <i class="material-icons sortable" role="button" style="  color: rgb(25, 192, 95);">restaurant</i> -->
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+
+
+
+            </div>
+
+
+          </div>
+
+
+
+
+        <!-- </div> -->
+        <div class="row" style="margin:5px">
+          <!-- <div class="col-1"></div> -->
+
+
+          <div class="col-6 col-md-6 col-sm-6 ">
+             <!-- <div *ngIf="xvalue.order_status_id === 6"></div> -->
+            <!-- <button class="btn btn-primary"  style="background-color: #ff4800;  width: 100% " -->
+              <!-- (click)=" Serveall(item)">Serve&nbsp;all </button> -->
+              <a  class="btn btn-round btn-primary"  style="background-color: #ff4800;  width: 100% "
+              (click)=" Serveall(item)">Serve&nbsp;all</a>
+
+
+
+
+
+
+              
+          </div>
+          <div class="col-6 col-md-6" >
+            <a class="btn btn-round btn-primary  " style="background-color: #ff4800; width: 100% "
+              (click)="Serve(item)">Serve </a>
+
+
+          </div>
+          <!-- <div class="col-1"></div> -->
+
+        </div>
+
+
+
+        <!-- <button  class="btn btn-primary float-right" style="background-color: rgb(255, 141, 0);  width: 60%" (click)="Serve()">Serve </button> -->
+
+
+
+        <!-- </span> -->
+
+      </div>
+      
+
+
+    </div>
+    <div class="col-md-4 col-sm-12 col-12 col-lg-4" *ngIf="food.length==0">
+        
+        
+      <img class=" sortable iconsover" title="Bearer Notification" style="width:100%; height:100%" src="assets/1232.JPG">
+    </div>
+    <div class="col-md-4 col-sm-12 col-12 col-lg-4" *ngIf="food.length==0">
+        
+      <img class=" sortable iconsover" title="Bearer Notification" style="width:100%; height:100%" src="assets/1232.JPG">
+    </div>
+    <div class="col-md-4 col-sm-12 col-12 col-lg-4" *ngIf="food.length==0">
+        
+      <img class=" sortable iconsover" title="Bearer Notification" style="width:100%; height:100%" src="assets/1232.JPG">
+    </div>
+
+
+
+  </div>
+</div>

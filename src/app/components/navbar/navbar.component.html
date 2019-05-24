@@ -1,0 +1,220 @@
+
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+  
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand pointerCursor" title="click to logout"  (click)="logout" (click)="panelExpanded = !panelExpanded">{{getTitle()}}</a>
+     
+      <div class="row">
+          <!-- <ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1"
+          [speed]="200" [showSpinner]="true" [direction]="'rightToLeftIncreased'"
+          [color]="'green'" [trickleSpeed]="250000" [thick]="true" [ease]="'linear'"
+          ></ng-progress> -->
+          <div class="col-3" (click)="btnClick1()">
+              <img class=" sortable iconsover" title="Cheff Screen" style="width:35px; height:35px" src="assets/sev.png">
+              <span class="notification" style="font-size:15px;margin-top: -12px;margin-right: -10px">{{count}}</span>
+          </div>
+            
+        <div class="col-3" data-toggle="modal" (click)="cli()"  data-target="#myModal33">
+          
+          <img class=" sortable iconsover" title="Bearer Notification" style="width:35px; height:35px" src="assets/not.png">
+         <span class="notification sortable foo" style="font-size:15px;margin-top: -12px;margin-right: -10px">{{count2}}</span>
+        </div>
+
+        <div class="col-3" (click)="btnClick2()">
+          <img class=" sortable iconsover"  title="Bearer Screen" style="width:35px; height:35px" src="assets/22.png">
+        </div>
+        
+        <div class="col-3" (click)="btnClick()">
+            <img class=" sortable iconsover" title="Food Items E/D Screen" style="width:35px; height:35px" src="assets/men.png">
+        </div>
+      </div> 
+    </div>
+    <a (click)="btnClick3()"  *ngIf="panelExpanded" class="btn btn-primary float-right"
+    style="background-color: #f80000;  "  >logout </a>
+  </div>
+  
+  
+ 
+    
+      
+    <!-- <i class="far fa-bell fa-2x" ></i> -->
+          <!-- <i class="fas fa-concierge-bell sortable fa-2x" (click)="btnClick2()"></i> -->
+            <!-- <i class="fas fa-hot-tub sortable fa-2x" (click)="btnClick1()"></i> -->
+            <!-- &nbsp; <i class="fas fa-clipboard-list sortable fa-2x" (click)="btnClick()" style="margin-right:5px" title="Item List"></i> -->
+
+
+
+
+</nav>
+ <div > 
+    <!--  -->
+
+<div  class="modal fade" id="myModal33"> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" >
+        <h4 class="modal-title font-weight-bold" style="font-size:30px"> NOTIFICATION </h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div *ngIf="count2>0" class="modal-body">
+        <div class="card  " style=" background-color: rgb(255, 255, 255);" *ngFor="let key of notify">
+          
+            <div class="" >
+              <h5 class="card-title font-weight-bold" style=" color: rgb(58, 54, 54);height: 40px; font-size: 30px ">
+                TABLE: {{key.table_no}}</h5>
+
+              <div style="  font-size: 18px " *ngFor="let xvalue of key.items">
+                {{xvalue.food_name}}
+
+                <!-- data-dismiss="modal" -->
+               
+              </div>
+              <a class="btn font-weight-bold btn-primary float-right"
+              style="background-color: #ff4800;  width: 30%" (click)="Readed(key)">ok </a>
+    
+
+            </div>
+
+
+
+            <div>
+
+
+            </div>
+
+
+    
+
+
+        </div>
+
+
+      </div>
+      <div *ngIf="count2 == 0"class="modal-body">
+       <h3>NO NOTIFICATION TO SHOW</h3>
+          
+       <button type="button" class="btn btn-danger float-right " data-dismiss="modal">Close</button>
+  
+        </div>
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer"> -->
+
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Update_con(itemname,departmentid,createrid,itid)">OK</button> -->
+      <!-- </div> -->
+
+    </div>
+  </div>
+</div>
+
+ </div> 
+
+
+<!-- <div class="container">
+                     
+
+       
+      
+   
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            
+           
+              <div class="modal-header">
+                <h4 class="modal-title">EDIT FOOD ITEMS</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+            
+              <div class="modal-body">
+                    <label style="font-size:20px;" >FOOD ITEMS</label>
+                   
+              <label style="font-size:20px;" >FOOD ITEMS</label>
+                    <select class="custom-select" id="inputGroupSelect02">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+              <label style="font-size:20px;" >STATUS</label>
+                    <select class="custom-select" id="inputGroupSelect02">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                   
+                  
+              
+             
+              <div class="modal-footer">
+                <button type="button" style=" background-color: rgb(35, 104, 182);" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button"  style=" background-color: rgb(35, 104, 182);" class="btn btn-danger" data-dismiss="modal" (click)="Delete_Alexa(alaxaid)">OK</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        </div>
+    </div> -->
+
+<!--
+
+<nav class="navbar navbar-transparent navbar-absolute">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button mat-raised-button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{getTitle()}}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="material-icons">dashboard</i>
+                        <p class="hidden-lg hidden-md">Dashboard</p>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="material-icons">notifications</i>
+                        <span class="notification">5</span>
+                        <p class="hidden-lg hidden-md">Notifications</p>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Mike John responded to your email</a></li>
+                        <li><a href="#">You have 5 new tasks</a></li>
+                        <li><a href="#">You're now friend with Andrew</a></li>
+                        <li><a href="#">Another Notification</a></li>
+                        <li><a href="#">Another One</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                       <i class="material-icons">person</i>
+                       <p class="hidden-lg hidden-md">Profile</p>
+                    </a>
+                </li>
+            </ul>
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group form-black is-empty">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="material-input"></span>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                    <i class="material-icons">search</i><div class="ripple-container"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav> -->

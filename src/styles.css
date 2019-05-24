@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+
+.main-panel .main-content{
+    background-color:#F4F4F4 !important;
+}
+.main-panel .main-content .container-fluid{
+    background-color: #F4F4F4 !important;
+}
+/* .modal-backdrop.show{
+    opacity: 0 !important;
+} */
